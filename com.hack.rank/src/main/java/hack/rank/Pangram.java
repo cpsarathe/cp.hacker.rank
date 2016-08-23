@@ -11,6 +11,12 @@ import java.util.Scanner;
  *  "The quick brown fox jumps over the lazy dog" repeatedly, because it is a pangram. 
  * (Pangrams are sentences constructed by using every letter of the alphabet at least once.)
  * 
+ * Approach -
+ * 
+ * Use Map to Store Aplhabets - O(n)
+ * Convert Input String to Upper Case - O(n)
+ * Loop through Input String and Check if it exists in map , if exists replace counter of map with 1 - O(n)
+ * Loop through map values and sum up all values , if sum is 26 it means its Pangram - O(n)
  * @author CP
  *
  */

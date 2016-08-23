@@ -1,0 +1,20 @@
+Objec­tive : A knight’s tour is a sequence of moves of a knight on a chess­board such that the knight vis­its every square only once. If the knight ends on a square that is one knight’s move from the begin­ning square (so that it could tour the board again imme­di­ately, fol­low­ing the same path), the tour is closed, oth­er­wise it is open. (Source : http://en.wikipedia.org/wiki/Knight%27s_tour)
+
+Exam­ple:
+
+Path-follwed-by-Knight-to-cover-all-the-cells
+Path-foll0wed-by-Knight-to-cover-all-the-cells
+Approach:
+
+Cre­ate a solu­tion matrix of the same struc­ture as chessboard.
+Start from 0,0 and index = 0. (index will rep­re­sent the no of cells has been cov­ered by the knight)
+Check cur­rent cell is not already used if not then mark that cell (start with 0 and keep incre­ment­ing it, it will show us the path for the knight).
+Check if index = N*N-1, means Knight has cov­ered all the cells. return true and print the solu­tion matrix.
+Now try to solve rest of the prob­lem recur­sively by mak­ing index +1. Check all 8 direc­tions. (Knight can move to 8 cells from its cur­rent posi­tion.) Check the bound­ary con­di­tions as well
+8-moves-of-a-Knight
+8-moves-of-a-Knight
+If none of the 8 recur­sive calls return true, BACKTRACK and undo the changes ( put 0 to cor­re­spond­ing cell in solu­tion matrix) and return false.
+See the code for bet­ter understanding.
+ 
+
+Code:
