@@ -7,7 +7,7 @@ public class MagicSquare {
 		//int arr[][] = {{15,0,0},{0,15,0},{0,0,15}};
 		//int arr[][] = {{1,2,3},{4,5,6},{7,8,9}};
 		//validateMagicSq(arr);
-		int arr[][] = generateMagicSquare(3,3);
+		int arr[][] = generateMagicSquare(5,5);
 		System.out.println(validateMagicSq(arr));
 	}
 	/**

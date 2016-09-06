@@ -1,0 +1,78 @@
+class LLNode
+{
+  int data;
+  LLNode next;
+  LLNode(int d) {data = d; next = null; }
+}
+public int length(LLNode h) {
+		int len = 0;
+		while (h != null) {
+			h = h.next;
+			len++;
+		}
+		return len;
+}
+
+	public LLNode findMiddleNode(LLNode head) {
+		if (head == null) {
+			return head;
+		}
+		LLNode slow = head;
+		LLNode fast = head;
+		while (fast != null && fast.next != null) {
+			fast = fast.next.next;
+			// in case of even length slow points to mid+1 , so check if fast is
+			// not null
+			if (fast != null) {
+				slow = slow.next;
+			}
+		}
+		return slow;
+	}
+
+public LLNode reverseSingleLInkedListInPlace(LLNode head) {
+		// Cre­ate 3 nodes, cur­rN­ode, Pre­vN­ode and nextNode.
+		// Ini­tial­ize them as cur­rN­ode = head; nextN­ode = null;pre­vN­ode =
+		// null;
+		// Now keep revers­ing the point­ers one by one till currNode!=null.
+
+		LLNode current = head;
+		LLNode prev = null;
+		LLNode next = null;
+
+		while (current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+		return head;
+	}
+
+boolean isPalindromicList(LLNode  A)
+{
+  		LLNode temp = head;
+		int size = length(temp);
+		temp = head;
+		LLNode middle = findMiddleNode(temp);
+		LLNode midOne;
+		if(size%2==0) {
+			midOne = reverseSingleLInkedListInPlace(middle);
+		} else {
+			midOne = reverseSingleLInkedListInPlace(middle.next);
+		}
+		temp = head;
+		boolean isPalindrome = false;
+		while(temp!=null && midOne!=null){
+			if(temp.data==midOne.data){
+				isPalindrome = true;
+			} else {
+				isPalindrome = false;
+				break;
+			}
+			temp = temp.next;
+			midOne = midOne.next;
+		}
+		return isPalindrome;
+}
